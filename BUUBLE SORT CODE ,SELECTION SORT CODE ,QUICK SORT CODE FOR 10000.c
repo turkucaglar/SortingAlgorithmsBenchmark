@@ -56,7 +56,7 @@ int partition(int array[], int low, int high) {
 void quickSort(int array[], int low, int high) {
     if (low < high) {
         int pi = partition(array, low, high);
-        quickSort(array, low, pi - 1); 
+        quickSort(array, low, pi - 1);
         quickSort(array, pi + 1, high);
     }
 }
@@ -79,30 +79,23 @@ void generateRandomArray(int arr[], int size) {
     }
 }
 
-void measureTime(void (*sortFunc)(int[], int), int arr[], int size,
-                 const char *sortName, const char *caseName) {
+void measureTime(void (*sortFunc)(int[], int), int arr[], int size, const char *sortName, const char *caseName) {
     clock_t start_time, end_time;
     start_time = clock();
-    sortFunc(arr, size);
+    sortFunc(arr, size - 1);
     end_time = clock();
-    printf("%s - %s Case: Time taken: %f seconds\n",
-           sortName, caseName, 
-           (double)(end_time - start_time) / CLOCKS_PER_SEC);
+    printf("%s - %s Case: Time taken: %f seconds\n", sortName, caseName, (double)(end_time - start_time) / CLOCKS_PER_SEC);
 }
 
-void quickTime(void (*sortFunc)(int[], int, int), int arr[], int size,
-               const char *sortName, const char *caseName) {
+void quickTime(void (*sortFunc)(int[], int, int), int arr[], int size, const char *sortName, const char *caseName) {
     clock_t start_time, end_time;
     start_time = clock();
-    sortFunc(arr, 0, size - 1);
+    sortFunc(arr, 0, size);
     end_time = clock();
-    printf("%s - %s Case: Time taken: %f seconds\n",
-           sortName, caseName, 
-           (double)(end_time - start_time) / CLOCKS_PER_SEC);
+    printf("%s - %s Case: Time taken: %f seconds\n", sortName, caseName, (double)(end_time - start_time) / CLOCKS_PER_SEC);
 }
 
-void runQuickCases(void (*sortFunc)(int[], int, int), int arr[], int size,
-                   const char *sortName) {
+void runQuickCases(void (*sortFunc)(int[], int, int), int arr[], int size, const char *sortName) {
     printf("%s:\n", sortName);
     generateSortedArray(arr, size);
     quickTime(sortFunc, arr, size, sortName, "Best");
@@ -113,8 +106,7 @@ void runQuickCases(void (*sortFunc)(int[], int, int), int arr[], int size,
     printf("\n");
 }
 
-void runSortingCases(void (*sortFunc)(int[], int), int arr[], int size,
-                     const char *sortName) {
+void runSortingCases(void (*sortFunc)(int[], int), int arr[], int size, const char *sortName) {
     printf("%s:\n", sortName);
     generateSortedArray(arr, size);
     measureTime(sortFunc, arr, size, sortName, "Best");
@@ -131,7 +123,7 @@ int main() {
     int bubbleData[size];
     int selectionData[size];
     int *quickData = malloc(size * sizeof(int));
-
+    
     if (quickData == NULL) {
         printf("Out of memory! The program is terminating.\n");
         return -1;
