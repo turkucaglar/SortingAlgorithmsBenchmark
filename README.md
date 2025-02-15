@@ -1,21 +1,21 @@
 # Sorting Algorithms Benchmark
 
-Bu proje, **Bubble Sort**, **Selection Sort** ve **Quick Sort** algoritmalarının farklı veri setleri üzerinde çalıştırılarak **performans karşılaştırmasını** yapmaktadır.
+This project compares the performance of **Bubble Sort**, **Selection Sort**, and **Quick Sort** algorithms on different datasets.
 
-## 📌 Kullanılan Algoritmalar
-- **Bubble Sort** 🫧 (Baloncuk Sıralama)
-- **Selection Sort** 📌 (Seçmeli Sıralama)
-- **Quick Sort** ⚡ (Hızlı Sıralama)
+## 📌 Implemented Algorithms
+- **Bubble Sort** 🫧 
+- **Selection Sort** 📌 
+- **Quick Sort** ⚡ 
 
-## 📊 Veri Setleri
-Kod, **10.000 elemanlık** diziler üzerinde çalışmaktadır:
-- **En iyi durum (Best Case)** → Sıralı dizi
-- **En kötü durum (Worst Case)** → Ters sıralı dizi
-- **Ortalama durum (Average Case)** → Rastgele sayılar
+## 📊 Datasets
+The code runs on **arrays with 10,000 elements** under the following conditions:
+- **Best Case** → Sorted array
+- **Worst Case** → Reverse sorted array
+- **Average Case** → Random numbers
 
-## 🚀 Kullanım
-Projeyi çalıştırmak için şu adımları takip edin:
+## 🚀 Usage
+Follow these steps to run the project:
 
-### **1️⃣ Derleme (Compile)**
+### **1️⃣ Compile**
 ```bash
 gcc sorting_benchmark.c -o sorting_benchmark
